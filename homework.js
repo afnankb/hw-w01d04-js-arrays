@@ -24,12 +24,12 @@
 let total = 0;
 const summationEven = function (thenumber){
 
- for(var i = 1; i <= thenumber; i++){
+ for(var i = 1; i <= thenumber; i+=2){
 
-       if(i % 2 === 0){
+       
       total += i;
       
-      }
+      
     }
     return total;
 
@@ -47,7 +47,7 @@ console.log(total);
 
 let total = 0;
 let averge = 0;
-const AverageOfNumber = function (thenumbers){
+const averageOfNumber = function (thenumbers){
 
  for(var i = 0; i < thenumbers.length; i++){
 
@@ -126,14 +126,14 @@ const countUpAndDown= function(number){
 //Write a function that will tell you all of the words in an array that contain the letter `a` 
  // should return ['cat', 'rabbit']    
 
- let listOfWord;
-const wordsWithA = function (list){
-for(var i=0 ; i<=list.length ; i++){
-if (list[i].indexOf("a")!== null){
-listOfWord.push(list[i]);
-
-return listOfWord
-
+ const wordsWithLetter = function(letter, words){
+  const str = [];
+  for(let i = 0; i < words.length; i ++){
+      if ( words[i].includes(letter)){
+          str.push(words[i]);
+      }
+  }
+  return str;
 }
 
 console.log(wordsWithA(['cat', 'rabbit', 'dog', 'frog']));
@@ -155,15 +155,14 @@ console.log(wordsWithA(['cat', 'rabbit', 'dog', 'frog']));
  // should return ['dog', 'frog']
 
 
- let listOfWord;
-const wordsWithLetter = function (liter,list){
-  console.log(list[2]);
-for(var i=0 ; i<=list.length ; i++){
-if (list[i].indexOf(liter)!== null){
-listOfWord.push(list[i]);
-
-return listOfWord
-
+ const wordsWithLetter = function(letter, words){
+  const str = [];
+  for(let i = 0; i < words.length; i ++){
+      if ( words[i].includes(letter)){
+          str.push(words[i]);
+      }
+  }
+  return str;
 }
 
 console.log(wordsWithLetter("g",['cat', 'rabbit', 'dog', 'frog']));
@@ -171,32 +170,21 @@ console.log(wordsWithLetter("g",['cat', 'rabbit', 'dog', 'frog']));
 
 
 
-}
-
-
-
-
-
-}
 
 
 
 
 //Function that returns the longest word in sentence 
 
-const longestWord =  function (str)
-{
-  var array1 = str.match(/\w[a-z]{0,}/gi);
-  var result = array1[0];
-
-  for(var x = 1 ; x < array1.length ; x++)
-  {
-    if(result.length < array1[x].length)
-    {
-    result = array1[x];
-    } 
+const longestWord = function(sentence){
+  const words = sentence.split(' ');
+  let longest = words[0];
+  for (let i = 0; i < words.length; i++){
+      if ( words[i].length > longest.length ){
+          longest = words[i];
+      }
   }
-  return result;
+  return longest;
 }
 console.log(longestWord('The cat in the house'));
 
@@ -216,21 +204,14 @@ const largestEvenNumber =  function (number)
           }
            
   }
-var bigest ;
-for (var n=0 ; n<=number.length ; n++){
-
-if (number[i]>bigest){
-bigest= number[n];
-
-
-}
-
-
-}
-
-
-return  bigest;
-
+  const largestEvenNumber = function(nums){
+    let largest = nums[0];
+    for(let i = 0; i < nums.length; i++){
+        if ( !(nums[i] % 2 )&& nums[i] > largest ){
+            largest = nums[i];
+        }
+    }
+    return largest
 }
 
 
